@@ -166,7 +166,7 @@ https://trello.com/b/o6ZUr581/trippin
  
 ### Git
  
-https://github.com/carvalen/Trippin
+https://github.com/carvalen/trippin-client
 
 ### Wireframes
 https://www.figma.com/file/EKhZ11hPHqUUgfuMK6GDmw/Trippin?node-id=0%3A1
