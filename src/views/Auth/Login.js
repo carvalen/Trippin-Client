@@ -9,7 +9,8 @@ function Login() {
     try {
       const { data } = await login(user);
       localStorage.setItem("user", JSON.stringify(data.user));
-      setUser({ user: data.user });
+      const newUser = data.user;
+      setUser(newUser);
     } catch (e) {
       console.error(e);
     }

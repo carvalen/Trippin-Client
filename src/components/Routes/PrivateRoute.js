@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 function PrivateRoute({ component: Component, exact, path, ...props }) {
   const { user } = useAuth();
   if (!user) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/login" />;// usuario que quiera entrar y no este logueado.
   }
 
   return (

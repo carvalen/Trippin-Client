@@ -4,8 +4,9 @@ import { useAuth } from "../../context/AuthContext";
 
 function AnonRoute({ component: Component, exact, path, ...props }) {
   const { user } = useAuth();
+  console.log("anonroute", user);
   if (user) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/home" />;//donde quieres que redirija al usuario.
   }
 
   return (
