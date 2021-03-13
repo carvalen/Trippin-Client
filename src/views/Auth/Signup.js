@@ -4,9 +4,11 @@ import { signup } from "../../service/auth.service";
 
 function Signup() {
   const handleSignup = async (user) => {
+    
     try {
-      const {data: userCreated} = await signup(user);
-      console.log(userCreated);
+      const userCreated = await signup(user);
+      console.log("holaaa", user);
+      console.log("user", userCreated);
     } catch (e) {
       console.error(e);
     }
