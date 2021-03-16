@@ -10,10 +10,10 @@
      </div>
      <div>
     Elige tu tipo de destino:
-         {/* <Link value="mar">Mar</Link>
-         <Link value="montaña">Montaña</Link>
-         <Link value="camping">Camping</Link>
-         <Link value="nieve">Nieve</Link> */}
+         <Link to="/Days">Mar</Link>
+         <Link to="/Days">Montaña</Link>
+         <Link to="/Days">Camping</Link>
+         <Link to="/Days">Nieve</Link>
      </div>
      </>
    );

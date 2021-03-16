@@ -1,24 +1,21 @@
-// import React from 'react'
-// import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
-// function Days() {
-//     return (
-//         <>
-
+function Days() {
+  return (
+      <>
+   <div>
+      <h2> Welcome to Trippin</h2>
+      
+    </div>
+    <div>
+ ¿Cuantos días vas a viajar?
+        <Link to="/Profile">3 días</Link>
+        <Link to="/Profile">7 días</Link>
         
-//         <div className="footer-container">
+    </div>
+    </>
+  );
+}
 
-// ¿Cuantos dias vas a viajar?
-// <Link>
-
-// </Link>
-// <Link>
-
-// </Link>
-//         </div>
-       
-//         </>
-//     )
-// }
-
-// export default Days
+export default Days;
