@@ -18,13 +18,9 @@ Trippin Navbar
               </Link>
 
             </li>
-            <li>
-            <Link to="/signup">Registrarse</Link>
-            </li><li>
-      <Link to="/login">Iniciar Sesión</Link>
-      </li>
+            
       <li>
-      <Link to="/login">Profile</Link>
+      <Link to="/Profile">Profile</Link>
       </li>
       </ul>
         </nav>

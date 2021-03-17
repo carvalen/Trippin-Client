@@ -1,6 +1,6 @@
 import React from "react";
 import AuthForm from "../../components/Auth/AuthForm";
-
+import {Link} from "react-router-dom"
 import {useAuth} from "../../context/AuthContext";
 
 function Signup() {
@@ -13,7 +13,7 @@ function Signup() {
     }
   };
 
-  return <AuthForm btnText="Registrarse" onSubmit={signup} />;
+  return <div><AuthForm btnText="Registrarse" onSubmit={signup} />¿Ya tienes una cuenta?<Link to="/login">Iniciar sesión</Link></div>;
 }
 
 export default Signup;

@@ -1,11 +1,13 @@
  import React from "react";
  import { Link } from "react-router-dom";
+ import Navbar from "../../components/Common/Navbar";
 
  function Home() {
    return (
        <>
+       <Navbar />
     <div>
-       <h2> Welcome to Trippin</h2>
+       <h2> Bienvenido a Trippin</h2>
        
      </div>
      <div>
