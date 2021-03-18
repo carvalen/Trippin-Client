@@ -1,18 +1,22 @@
 import React from "react";
-import {login,signup, logout} from "../service/auth.service"
+import { login, signup, logout } from "../service/auth.service";
 const AuthContext = React.createContext();
 
+const localUser =
+  localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
+
 const initialState = {
-  user: localStorage.getItem("user"),
+  user: localUser,
 };
 
 function AuthProvider({ children }) {
-  const [user, setUser] = React.useState(initialState);
+  const [state, setUser] = React.useState(initialState);
+
   const handleLogin = React.useCallback(async (user) => {
     try {
       const { data: loggedUser } = await login(user);
-      const strgyfiedUser = JSON.stringify({ ...loggedUser, isLogged: true });
-  localStorage.setItem("user", strgyfiedUser);
+      const stringyfiedUser = JSON.stringify({ ...loggedUser, isLogged: true });
+      localStorage.setItem("user", stringyfiedUser);
       setUser({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
       console.error(e);
@@ -23,7 +27,7 @@ function AuthProvider({ children }) {
     try {
       const { data: loggedUser } = await signup(user);
       const strgyfiedUser = JSON.stringify({ ...loggedUser, isLogged: true });
-  localStorage.setItem("user", strgyfiedUser);
+      localStorage.setItem("user", strgyfiedUser);
       setUser({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
       console.error(e);
@@ -34,17 +38,27 @@ function AuthProvider({ children }) {
     try {
       await logout();
       localStorage.removeItem("user");
-      setUser({ user: {
-        id: null,
-        email: "",
-        isLogged: false,
-      } });
+      setUser({
+        user: {
+          id: null,
+          email: "",
+          isLogged: false,
+        },
+      });
     } catch (e) {
       console.error(e);
     }
   }, []);
   return (
-    <AuthContext.Provider value={{ ...user, setUser, handleLogin,handleSignup,handleLogout }}>
+    <AuthContext.Provider
+      value={{
+        user: state.user,
+        setUser,
+        handleLogin,
+        handleSignup,
+        handleLogout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
