@@ -22,6 +22,9 @@ Trippin Navbar
       <li>
       <Link to="/Profile">Profile</Link>
       </li>
+      {/* <li>
+      <Link to="/">Logout</Link>
+      </li> */}
       </ul>
         </nav>
         </>

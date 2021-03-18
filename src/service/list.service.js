@@ -1,10 +1,16 @@
 import axios from "axios";
 
-const authApi = axios.create({
-  baseURL: "http://localhost:4000/auth",
-  withCredentials: true,
+const listApi = axios.create({
+  withCredentials: true, // cors, enviar credenciales(estandar)
+  baseURL: "http://localhost:4000/lists",
 });
 
-export const getTemplate = (getTemplate) => authApi.get("/:type/:days", getTemplate);
+export const getLists = () => listApi.get("/");
 
+export const getList = (listId) => listApi.get(`/${listId}`);
 
+export const createList = (body) => listApi.post("/", body);
+
+export const updateList = (listId, body) => listApi.patch(`/${listId}`, body);
+
+export const deleteList = (listId) => listApi.delete(`/${listId}`);
