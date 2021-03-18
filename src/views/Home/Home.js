@@ -13,10 +13,10 @@ function Home() {
       </div>
       <div>
         Elige tu tipo de destino:
-        <Link to="/Days">Mar</Link>
-        <Link to="/Days">Montaña</Link>
-        <Link to="/Days">Camping</Link>
-        <Link to="/Days">Nieve</Link>
+        <Link to="/mar/days">Mar</Link>
+        <Link to="/montana/days">Montaña</Link>
+        <Link to="/camping/days">Camping</Link>
+        <Link to="/nieve/days">Nieve</Link>
       </div>
     </>
   );

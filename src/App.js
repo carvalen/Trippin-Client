@@ -10,6 +10,7 @@ import Footer from "./components/Common/Footer";
 import { useAuth } from "./context/AuthContext";
 import Days from "./components/Trips/Days";
 import Profile from "./components/Profile/Profile";
+import TemplateResult from "./components/Trips/TemplateResult";
 
 function App() {
   const { user, handleLogout } = useAuth();
@@ -30,8 +31,9 @@ function App() {
         <AnonRoute exact path="/login" component={Login} />
         <AnonRoute exact path="/signup" component={Signup} />
         <PrivateRoute exact path="/home" component={Home} />
-        <PrivateRoute exact path="/days" component={Days} />
+        <PrivateRoute exact path="/:type/days" component={Days} />
         <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/template" component={TemplateResult} />
       </Switch>
       <Footer />
     </>
