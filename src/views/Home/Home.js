@@ -14,7 +14,7 @@ function Home() {
       <div>
         Elige tu tipo de destino:
         <Link to="/mar/days">Mar</Link>
-        <Link to="/montana/days">Montaña</Link>
+        <Link to="/rural/days">Rural</Link>
         <Link to="/camping/days">Camping</Link>
         <Link to="/nieve/days">Nieve</Link>
       </div>
