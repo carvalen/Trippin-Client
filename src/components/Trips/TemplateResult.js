@@ -1,11 +1,17 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
+import {useLocation, useHistory} from "react-router-dom";
 import Navbar from "../Common/Navbar";
+import {createList} from "../../service/list.service";
+
 
 export default function TemplateResult() {
     const { state } = useLocation();
     const { type, days, items } = state[0];
-    
+    const { push } = useHistory();
+    const createListHandle = async ()=> {
+        await createList ({ type, days, items });
+        push("/profile");
+    }
     return (
 <>
         <div>
@@ -17,7 +23,7 @@ export default function TemplateResult() {
             </ul>
         </div>
         <div><p>¿Te gustaría añadirlo a tu perfil?</p>
-          <button to= "/profile">Añadir</button></div>
+          <button onClick={createListHandle}>Añadir</button></div>
         </>
     )
 }
