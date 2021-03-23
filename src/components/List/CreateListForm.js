@@ -14,6 +14,7 @@ export default function ListForm({ onSubmit, listInfo, toggleEdit }) {
   const deleteItem = (item) =>{
     setFormState((formState) => formState.filter(ele => ele !== item));
   } 
+  //toggle->form añadir +
   return (
     <div>
       <form onSubmit={handleSubmit}>

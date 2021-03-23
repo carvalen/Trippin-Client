@@ -1,49 +1,95 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Common/Navbar";
-import { updateList } from "../../service/list.service";
+import { updateList, deleteList } from "../../service/list.service";
 import { getUser } from "../../service/auth.service";
-import { useLocation, useHistory } from "react-router-dom";
+import ListForm from '../List/ListForm';
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Profile() {
-  const [state, setState] = useState({});
+  const [userState, setUserState] = useState({});
+  const [editToggle, setEditToggle] = useState({ listId: "", status: false });
   const getUserInfo = async () => {
     const { data: user } = await getUser();
-    setState(user);
+    setUserState(user);
   };
-
   useEffect(() => {
     getUserInfo();
-    console.log("username", state.lists);
   }, []);
+  const toggleEdit = (listId) => {
+    setEditToggle({ listId, status: !editToggle.status });
+  }
+  const handleEdit = async (listId, updatedItems) => {
+    let updatedList = userState.lists.find(list => list._id === listId);
+    updatedList = {...updatedList, items: updatedItems};
+    const { data } = await updateList(listId, updatedList);
+    getUserInfo();
+  }
+  const handleDelete = async (listId) => {
+    await deleteList(listId);
+    const filteredUserLists = userState.lists.filter(list => list._id !== listId);
+    setUserState({...userState, lists: filteredUserLists})
+  }
+  const [text, setText] = useState("");
+  const [isCopied, setIsCopied] = useState(false);
 
+  const onCopyText = () => {
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1000);
+  };
+  
   return (
     <>
       <Navbar />
-      <h2>Bienvenido a tu perfil {state.username}</h2>
+      <h2>Bienvenido a tu perfil {userState.username}</h2>
+      <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
+      <div>¿Te gustaría crear tu propia lista?<button onClick={() => toggleEdit()}>Crear</button></div> 
       <div>
-        
-        {state.lists &&
-          state.lists.map((e) => {
-            return (
-              <div>
-                <ul>
-                  <p>{e.type}</p>
-                  <p>{e.days}</p>
-                  <li>
-                    {e.items.map((item) => (
-                      <p>{item}<button type="submit">Editar</button><button type="submit">Eliminar</button></p>
-                    ))}
-                  </li>
-                </ul>
-              </div>
-            );
-          })}
-        
+        {userState.lists &&
+          userState.lists.map((list) => (
+            (editToggle.listId === list._id && editToggle.status) ?
+              <ListForm onSubmit={handleEdit} listInfo={list} toggleEdit={toggleEdit} />
+              :
+              
+              (<div key={list._id}>
+              
+                <div>
+                  <p>Viaje de tipo: {list.type}</p>
+                  <p>Duración: {list.days} días</p>
+                  <p>Items:</p>
+                  <ul>
+                    {list.items.map((item, idx) => 
+                      <li key={idx}>
+                        {item}
+                      </li>)}
+                  </ul>
+                </div>
+                <button onClick={() => toggleEdit(list._id)}>Editar</button>
+                <button onClick={() => handleDelete(list._id)}>Eliminar</button>
+                <div className="container">
+      <input
+        type="text"
+        value={text}
+        placeholder="Type some text here"
+        onChange={(event) => setText(event.target.value)}
+      />
+      <CopyToClipboard text={text} onCopy={onCopyText}>
+        <div className="copy-area">
+          <button>Copiar</button>
+          <span className={`copy-feedback ${isCopied ? "active" : ""}`}>
+            Copiado!
+          </span>
+        </div>
+      </CopyToClipboard>
+    </div>
+                <hr />
+              </div>)
+          ))}
       </div>
     </>
   );
 }
-
 export default Profile;
-//servicio get list. getuser. boton edit.
+
 //Hacer un nuevo componente welcome para la pagina principaly sustituirlo en app.js.

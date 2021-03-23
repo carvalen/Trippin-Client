@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import {useList} from "../../context/ListContext"
-
+import Navbar from "../../components/Common/Navbar"
 
 
 function Home() {
     // const 
   return (
     <>
+<div><Navbar /></div>
       <div>
       
         <h2> Welcome to Trippin</h2>

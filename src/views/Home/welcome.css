@@ -1,0 +1,27 @@
+a{ text-decoration: none}
+.welcome-nav {
+    background-color: #FFF;
+
+}
+.welcome-nav img{
+    max-width: 100px;
+
+}
+.welcome {
+    background: transparent;
+    color: #000;
+    transition: all .5s ease;
+    padding: 7px 26px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    font-weight: 400;
+}
+.welcome-2 {
+    background: transparent;
+    color: #000;
+    transition: all .5s ease;
+    padding: 7px 26px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    font-weight: 400;
+}
