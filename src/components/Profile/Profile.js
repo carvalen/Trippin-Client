@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Common/Navbar";
 import { updateList, deleteList } from "../../service/list.service";
 import { getUser } from "../../service/auth.service";
-import ListForm from '../List/ListForm';
+import ListForm from "../List/ListForm";
+// import CreateListForm from "../List/ListForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Profile() {
@@ -12,23 +13,46 @@ function Profile() {
     const { data: user } = await getUser();
     setUserState(user);
   };
-  useEffect(() => {
+  // const [createToggle, setCreateToggle] = useState({
+  //   listId: "",
+  //   status: false,
+  // });
+  // const getUserInfoCreate = async () => {
+  //   const { data: user } = await getUser();
+  //   setUserState(user);
+  // };
+   useEffect(() => {
     getUserInfo();
-  }, []);
+   }, []);
   const toggleEdit = (listId) => {
     setEditToggle({ listId, status: !editToggle.status });
-  }
+  };
   const handleEdit = async (listId, updatedItems) => {
-    let updatedList = userState.lists.find(list => list._id === listId);
-    updatedList = {...updatedList, items: updatedItems};
+    let updatedList = userState.lists.find((list) => list._id === listId);
+    updatedList = { ...updatedList, items: updatedItems };
     const { data } = await updateList(listId, updatedList);
     getUserInfo();
-  }
+  };
   const handleDelete = async (listId) => {
     await deleteList(listId);
-    const filteredUserLists = userState.lists.filter(list => list._id !== listId);
-    setUserState({...userState, lists: filteredUserLists})
-  }
+    const filteredUserLists = userState.lists.filter(
+      (list) => list._id !== listId
+    );
+    setUserState({ ...userState, lists: filteredUserLists });
+  };
+
+  // //create
+  // const toggleCreate = (listId) => {
+  //   setCreateToggle({ listId, status: !createToggle.status });
+  // };
+  // const handleCreate = async (listId, createdItems) => {
+  //   let createdList = userState.lists.find((list) => list._id === listId);
+  //   createdList = { ...createdList, items: createdItems };
+  //   const { data } = await createdList(listId, createdList);
+  //   getUserInfoCreate();
+  // };
+  // ///
+
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
@@ -38,54 +62,65 @@ function Profile() {
       setIsCopied(false);
     }, 1000);
   };
-  
+
   return (
     <>
       <Navbar />
       <h2>Bienvenido a tu perfil {userState.username}</h2>
       <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
-      <div>¿Te gustaría crear tu propia lista?<button onClick={() => toggleEdit()}>Crear</button></div> 
+
+      {/* <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} /> */}
+      <div>
+        ¿Te gustaría crear tu propia lista?
+        {/* <button onClick={() => toggleCreate()}>Crear</button> */}
+      </div>
+
       <div>
         {userState.lists &&
-          userState.lists.map((list) => (
-            (editToggle.listId === list._id && editToggle.status) ?
-              <ListForm onSubmit={handleEdit} listInfo={list} toggleEdit={toggleEdit} />
-              :
-              
-              (<div key={list._id}>
-              
+          userState.lists.map((list) =>
+            editToggle.listId === list._id && editToggle.status ? (
+              <ListForm
+                onSubmit={handleEdit}
+                listInfo={list}
+                toggleEdit={toggleEdit}
+              />
+            ) : (
+              <div key={list._id}>
                 <div>
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
-                  <p>Items:</p>
+                  {/* <p>Listado:</p> */}
                   <ul>
-                    {list.items.map((item, idx) => 
-                      <li key={idx}>
-                        {item}
-                      </li>)}
+                    {list.items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
                   </ul>
                 </div>
+
                 <button onClick={() => toggleEdit(list._id)}>Editar</button>
                 <button onClick={() => handleDelete(list._id)}>Eliminar</button>
                 <div className="container">
-      <input
-        type="text"
-        value={text}
-        placeholder="Type some text here"
-        onChange={(event) => setText(event.target.value)}
-      />
-      <CopyToClipboard text={text} onCopy={onCopyText}>
-        <div className="copy-area">
-          <button>Copiar</button>
-          <span className={`copy-feedback ${isCopied ? "active" : ""}`}>
-            Copiado!
-          </span>
-        </div>
-      </CopyToClipboard>
-    </div>
+                  <input
+                    type="text"
+                    value={text}
+                    placeholder="Type some text here"
+                    onChange={(event) => setText(event.target.value)}
+                  />
+                  <CopyToClipboard text={text} onCopy={onCopyText}>
+                    <div className="copy-area">
+                      <button>Copiar</button>
+                      <span
+                        className={`copy-feedback ${isCopied ? "active" : ""}`}
+                      >
+                        Copiado!
+                      </span>
+                    </div>
+                  </CopyToClipboard>
+                </div>
                 <hr />
-              </div>)
-          ))}
+              </div>
+            )
+          )}
       </div>
     </>
   );

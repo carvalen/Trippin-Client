@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 export default function ListForm({ onSubmit, listInfo, toggleEdit }) {
   const [ formState, setFormState ] = useState(listInfo.items);
   const handleChange = async (e) => {
@@ -19,7 +20,7 @@ export default function ListForm({ onSubmit, listInfo, toggleEdit }) {
       <form onSubmit={handleSubmit}>
         {listInfo.items.map((item, idx) => (
           <div key={idx}> 
-            <label>Item</label>
+            {/* <label>Para llevar:</label> */}
             <input
               type="text"
               name={idx}
