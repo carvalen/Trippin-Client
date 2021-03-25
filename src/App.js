@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      {user?.isLogged && <button onClick={logout}>Logout</button>}
+      {user?.isLogged && <i class="fas fa-sign-out-alt" onClick={logout}></i>}
 
       <Switch>
         <AnonRoute exact path="/" component={Welcome} />

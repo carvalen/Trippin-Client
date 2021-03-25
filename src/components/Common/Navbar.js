@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-      <div className="menu-icon" onClick={handleClick}><a href="/"><img src="./images/maleta_dibujo.png" alt="logo"/></a>
+      <div className="menu-icon" onClick={handleClick}>
         <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
         <ul>
           {user?.isLogged ? (
@@ -21,7 +21,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>Profile</Link>
+                <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>Perfil</Link>
               </li>{" "}
             </>
           ) : (

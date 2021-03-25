@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Common/Navbar";
-import { updateList, deleteList } from "../../service/list.service";
+import { updateList, deleteList, createList } from "../../service/list.service";
 import { getUser } from "../../service/auth.service";
 import ListForm from "../List/ListForm";
-// import CreateListForm from "../List/ListForm";
+import CreateListForm from "../List/CreateListForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Profile() {
@@ -13,14 +13,12 @@ function Profile() {
     const { data: user } = await getUser();
     setUserState(user);
   };
-  // const [createToggle, setCreateToggle] = useState({
-  //   listId: "",
-  //   status: false,
-  // });
-  // const getUserInfoCreate = async () => {
-  //   const { data: user } = await getUser();
-  //   setUserState(user);
-  // };
+   const [createToggle, setCreateToggle] = useState(false);
+
+   const getUserInfoCreate = async () => {
+    const { data: user } = await getUser();
+     setUserState(user);
+   };
    useEffect(() => {
     getUserInfo();
    }, []);
@@ -41,17 +39,21 @@ function Profile() {
     setUserState({ ...userState, lists: filteredUserLists });
   };
 
-  // //create
-  // const toggleCreate = (listId) => {
-  //   setCreateToggle({ listId, status: !createToggle.status });
-  // };
-  // const handleCreate = async (listId, createdItems) => {
-  //   let createdList = userState.lists.find((list) => list._id === listId);
-  //   createdList = { ...createdList, items: createdItems };
-  //   const { data } = await createdList(listId, createdList);
-  //   getUserInfoCreate();
-  // };
-  // ///
+// //create
+ const toggleCreate = () => {
+  setCreateToggle( !createToggle );
+ };
+ const handleCreate = async (newList) => {
+   
+   const list = {...newList, items: newList.items.split(",")}
+   
+  const { data } = await createList(list);
+  console.log("data",data);
+  setUserState({...userState, lists: [...userState.lists, data] })
+
+  //  getUserInfoCreate();
+ };
+
 
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
@@ -69,10 +71,10 @@ function Profile() {
       <h2>Bienvenido a tu perfil {userState.username}</h2>
       <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
 
-      {/* <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} /> */}
+     {createToggle && <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} />  }
       <div>
         ¿Te gustaría crear tu propia lista?
-        {/* <button onClick={() => toggleCreate()}>Crear</button> */}
+         <button onClick={() => toggleCreate()}>Crear</button> 
       </div>
 
       <div>
@@ -89,7 +91,7 @@ function Profile() {
                 <div>
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
-                  {/* <p>Listado:</p> */}
+                  
                   <ul>
                     {list.items.map((item, idx) => (
                       <li key={idx}>{item}</li>

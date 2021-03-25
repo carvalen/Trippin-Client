@@ -1,5 +1,7 @@
 import React from "react";
 import * as S from "./styles";
+import "./AuthForm.css";
+import { Link } from "react-router-dom";
 
 function AuthForm({ btnText, onSubmit }) {
   const [state, setState] = React.useState({ username: "", email: "", password: "" });
@@ -14,6 +16,16 @@ function AuthForm({ btnText, onSubmit }) {
   };
 
   return (
+    <>
+    <div className="navbar-home">
+    <div className="navbar-container">
+        <Link to='/' className='navbar-logo'>
+            TRIPPIN 
+           {/* <i className="fas fa-suitcase-rolling"></i> */}
+           <i className="fas fa-campground"></i>
+        </Link>
+        </div>  
+      </div>
     <S.Form onSubmit={handleSubmit}>
     <S.Label>
         Nombre de usuario:
@@ -44,6 +56,8 @@ function AuthForm({ btnText, onSubmit }) {
       </S.Label>
       <S.Button>{btnText}</S.Button>
     </S.Form>
+    
+    </>
   );
 }
 
