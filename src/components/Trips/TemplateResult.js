@@ -2,7 +2,7 @@ import React from 'react';
 import {useLocation, useHistory} from "react-router-dom";
 import Navbar from "../Common/Navbar";
 import {createList} from "../../service/list.service";
-
+import Footer from "../../components/Common/Footer"
 
 export default function TemplateResult() {
     const { state } = useLocation();
@@ -24,6 +24,7 @@ export default function TemplateResult() {
         </div>
         <div><p>¿Te gustaría añadirlo a tu perfil?</p>
           <button onClick={createListHandle}>Añadir</button></div>
+          <Footer />
         </>
     )
 }

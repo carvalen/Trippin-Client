@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Navbar from "../../components/Common/Navbar";
 import {getTemplate} from "../../service/template.service"
+import Footer from "../../components/Common/Footer"
 
 function Days() {
     const { type } = useParams();
@@ -25,6 +26,7 @@ function Days() {
           <button  value="3" name="days3" onClick= {handleClick}>3 días</button>
           <button  value="7" name="days7" onClick= {handleClick}>7 días</button>
         </div>
+        <Footer />
     </>
   );
 }

@@ -21,6 +21,7 @@ export const Label = styled.label`
 
 export const Button = styled.button`
   background-color: transparent;
-  
+  border-radius: 10px;
   color: black;
+  hover: 
 `;

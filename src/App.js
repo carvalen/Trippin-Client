@@ -7,7 +7,7 @@ import Welcome from "./views/Home/Welcome";
 import Home from "./views/Home/Home";
 import PrivateRoute from "./components/Routes/PrivateRoute";
 import AnonRoute from "./components/Routes/AnonRoute";
-import Footer from "./components/Common/Footer";
+// import Footer from "./components/Common/Footer";
 import { useAuth } from "./context/AuthContext";
 import Days from "./components/Trips/Days";
 import Profile from "./components/Profile/Profile";
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      {user?.isLogged && <i class="fas fa-sign-out-alt" onClick={logout}></i>}
+      {user?.isLogged && <i className="fas fa-sign-out-alt" onClick={logout}></i>}
 
       <Switch>
         <AnonRoute exact path="/" component={Welcome} />
@@ -35,7 +35,7 @@ function App() {
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/template" component={TemplateResult} />
       </Switch>
-      <Footer />
+      
     </>
   );
 }

@@ -1,12 +1,13 @@
 .home-page a {
     color: #FFF;
 }
+
 .links-container {
 display: flex;
 flex-wrap: wrap;
 align-content: space-between;
 }
-.container-image {
+.container-image, .home-container {
     position: relative;
     display: inline-block;
     text-align: center;
@@ -15,10 +16,15 @@ align-content: space-between;
     width: 300px;
     height: auto;
 }
-.image-text {
+.image-text, .home-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
     font-size: 50px;
 }
+.home-text {
+    font-size: 25px;
+}
+
+

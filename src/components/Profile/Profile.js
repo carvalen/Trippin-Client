@@ -5,6 +5,7 @@ import { getUser } from "../../service/auth.service";
 import ListForm from "../List/ListForm";
 import CreateListForm from "../List/CreateListForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Footer from "../../components/Common/Footer"
 
 function Profile() {
   const [userState, setUserState] = useState({});
@@ -39,7 +40,7 @@ function Profile() {
     setUserState({ ...userState, lists: filteredUserLists });
   };
 
-// //create
+
  const toggleCreate = () => {
   setCreateToggle( !createToggle );
  };
@@ -50,8 +51,6 @@ function Profile() {
   const { data } = await createList(list);
   console.log("data",data);
   setUserState({...userState, lists: [...userState.lists, data] })
-
-  //  getUserInfoCreate();
  };
 
 
@@ -124,9 +123,10 @@ function Profile() {
             )
           )}
       </div>
+      <Footer />
     </>
   );
 }
 export default Profile;
 
-//Hacer un nuevo componente welcome para la pagina principaly sustituirlo en app.js.
+

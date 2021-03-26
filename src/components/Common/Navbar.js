@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import "../Common/Navbar.css"
 
 function Navbar() {
   const { user } = useAuth();
@@ -10,11 +11,18 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
+      <div className="navbar-container">
+        <Link to='/' className='navbar-logo'>
+            TRIPPIN 
+           <i className="fas fa-campground"></i>
+        </Link>
+      </div>
       <div className="menu-icon" onClick={handleClick}>
         <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
         <ul>
           {user?.isLogged ? (
             <>
+            
               <li className="nav-item">
                 <Link to="/home" className="nav-links" onClick={closeMobileMenu}>
                   Home
@@ -23,6 +31,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>Perfil</Link>
               </li>{" "}
+              
             </>
           ) : (
             <>
