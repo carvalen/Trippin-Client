@@ -22,7 +22,7 @@ function Welcome() {
             <p className="main-text">
               Te ayudamos a organizar lo imprescindible según el lugar y la duración de tu viaje con listados predeterminados!
             </p>
-      <div className="welcome">
+      <div className="welcome" align="center">
         <div className="links-btn"><Link to="/Signup">Registrarse</Link></div>
       <hr />
         <div className="links-btn"><Link to="/login">Iniciar Sesión</Link></div>

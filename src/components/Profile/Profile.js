@@ -85,7 +85,7 @@ function Profile() {
                 toggleEdit={toggleEdit}
               />
             ) : (
-              <div key={list._id}>
+              <div key={list._id} align="center">
                 <div>
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
@@ -119,7 +119,7 @@ function Profile() {
                     </div>
                   </CopyToClipboard>
                 </div>
-                <hr />
+                <hr/>
               </div>
             )
           )}
