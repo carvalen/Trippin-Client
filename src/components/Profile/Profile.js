@@ -5,7 +5,7 @@ import { getUser } from "../../service/auth.service";
 import ListForm from "../List/ListForm";
 import CreateListForm from "../List/CreateListForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Footer from "../../components/Common/Footer"
+import Footer from "../../components/Common/Footer";
 
 function Profile() {
   const [userState, setUserState] = useState({});
@@ -14,15 +14,15 @@ function Profile() {
     const { data: user } = await getUser();
     setUserState(user);
   };
-   const [createToggle, setCreateToggle] = useState(false);
+  const [createToggle, setCreateToggle] = useState(false);
 
-   const getUserInfoCreate = async () => {
+  const getUserInfoCreate = async () => {
     const { data: user } = await getUser();
-     setUserState(user);
-   };
-   useEffect(() => {
+    setUserState(user);
+  };
+  useEffect(() => {
     getUserInfo();
-   }, []);
+  }, []);
   const toggleEdit = (listId) => {
     setEditToggle({ listId, status: !editToggle.status });
   };
@@ -40,19 +40,16 @@ function Profile() {
     setUserState({ ...userState, lists: filteredUserLists });
   };
 
+  const toggleCreate = () => {
+    setCreateToggle(!createToggle);
+  };
+  const handleCreate = async (newList) => {
+    const list = { ...newList, items: newList.items.split(",") };
 
- const toggleCreate = () => {
-  setCreateToggle( !createToggle );
- };
- const handleCreate = async (newList) => {
-   
-   const list = {...newList, items: newList.items.split(",")}
-   
-  const { data } = await createList(list);
-  console.log("data",data);
-  setUserState({...userState, lists: [...userState.lists, data] })
- };
-
+    const { data } = await createList(list);
+    console.log("data", data);
+    setUserState({ ...userState, lists: [...userState.lists, data] });
+  };
 
   const [text, setText] = useState("");
   const [isCopied, setIsCopied] = useState(false);
@@ -70,10 +67,12 @@ function Profile() {
       <h2>Bienvenido a tu perfil {userState.username}</h2>
       <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
 
-     {createToggle && <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} />  }
+      {createToggle && (
+        <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} />
+      )}
       <div>
         ¿Te gustaría crear tu propia lista?
-         <button onClick={() => toggleCreate()}>Crear</button> 
+        <button onClick={() => toggleCreate()}>Crear</button>
       </div>
 
       <div>
@@ -90,7 +89,7 @@ function Profile() {
                 <div>
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
-                  
+
                   <ul>
                     {list.items.map((item, idx) => (
                       <li key={idx}>{item}</li>
@@ -101,19 +100,21 @@ function Profile() {
                 <button onClick={() => toggleEdit(list._id)}>Editar</button>
                 <button onClick={() => handleDelete(list._id)}>Eliminar</button>
                 <div className="container">
-                  <input
-                    type="text"
-                    value={text}
-                    placeholder="Type some text here"
-                    onChange={(event) => setText(event.target.value)}
-                  />
-                  <CopyToClipboard text={text} onCopy={onCopyText}>
+                  
+                  <CopyToClipboard
+                    text={`
+    Type: ${list.type}
+    Days: ${list.days}
+    Items: ${list.items}
+  `}
+                    onCopy={onCopyText}
+                  >
                     <div className="copy-area">
                       <button>Copiar</button>
                       <span
                         className={`copy-feedback ${isCopied ? "active" : ""}`}
                       >
-                        Copiado!
+                        {isCopied && "Copiado!"}
                       </span>
                     </div>
                   </CopyToClipboard>
@@ -128,5 +129,3 @@ function Profile() {
   );
 }
 export default Profile;
-
-

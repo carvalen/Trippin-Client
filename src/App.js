@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, useHistory} from "react-router-dom";
+import { Switch, useHistory, Route} from "react-router-dom";
 import Login from "./views/Auth/Login";
 import Signup from "./views/Auth/Signup";
 import Logout from "./views/Auth/Logout";
@@ -34,6 +34,8 @@ function App() {
         <PrivateRoute exact path="/:type/days" component={Days} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/template" component={TemplateResult} />
+        <Route path="*"><h1>Not Found</h1></Route>
+
       </Switch>
       
     </>
