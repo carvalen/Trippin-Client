@@ -47,7 +47,6 @@ function Profile() {
     const list = { ...newList, items: newList.items.split(",") };
 
     const { data } = await createList(list);
-    console.log("data", data);
     setUserState({ ...userState, lists: [...userState.lists, data] });
   };
 
@@ -85,8 +84,8 @@ function Profile() {
                 toggleEdit={toggleEdit}
               />
             ) : (
-              <div key={list._id} align="center">
-                <div>
+              <div key={list._id} >
+                <div >
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
 
@@ -100,7 +99,12 @@ function Profile() {
                 <button onClick={() => toggleEdit(list._id)}>Editar</button>
                 <button onClick={() => handleDelete(list._id)}>Eliminar</button>
                 <div className="container">
-                  
+                  {/* <input
+                    type="text"
+                    value={text}
+                    placeholder="Type some text here"
+                    onChange={(event) => setText(event.target.value)}
+                  /> */}
                   <CopyToClipboard
                     text={`
     Type: ${list.type}
@@ -119,7 +123,7 @@ function Profile() {
                     </div>
                   </CopyToClipboard>
                 </div>
-                <hr/>
+                <div align="center"><hr /></div>
               </div>
             )
           )}

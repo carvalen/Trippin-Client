@@ -7,7 +7,7 @@ import Welcome from "./views/Home/Welcome";
 import Home from "./views/Home/Home";
 import PrivateRoute from "./components/Routes/PrivateRoute";
 import AnonRoute from "./components/Routes/AnonRoute";
-// import Footer from "./components/Common/Footer";
+
 import { useAuth } from "./context/AuthContext";
 import Days from "./components/Trips/Days";
 import Profile from "./components/Profile/Profile";
