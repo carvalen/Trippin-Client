@@ -13,6 +13,7 @@ import Days from "./components/Trips/Days";
 import Profile from "./components/Profile/Profile";
 import TemplateResult from "./components/Trips/TemplateResult";
 
+
 function App() {
   const { user, handleLogout } = useAuth();
   const history = useHistory();
@@ -26,6 +27,7 @@ function App() {
       {user?.isLogged && <i className="fas fa-sign-out-alt" onClick={logout}></i>}
 
       <Switch>
+      
         <AnonRoute exact path="/" component={Welcome} />
         <AnonRoute exact path="/login" component={Login} />
         <AnonRoute exact path="/signup" component={Signup} />
@@ -35,7 +37,7 @@ function App() {
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/template" component={TemplateResult} />
         <Route path="*"><h1>Not Found</h1></Route>
-
+ 
       </Switch>
       
     </>

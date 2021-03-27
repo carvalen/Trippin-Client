@@ -11,6 +11,7 @@ const initialState = {
 
 function AuthProvider({ children }) {
   const [state, setUser] = React.useState(initialState);
+  const [error, setError]= React.useState("");
 
   const handleLogin = React.useCallback(async (user) => {
     try {
@@ -19,7 +20,7 @@ function AuthProvider({ children }) {
       localStorage.setItem("user", stringyfiedUser);
       setUser({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
-      console.error(e);
+      setError(e.response.data.message);
     }
   }, []);
 
@@ -30,7 +31,8 @@ function AuthProvider({ children }) {
       localStorage.setItem("user", strgyfiedUser);
       setUser({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
-      console.error(e);
+      
+      setError(e.response.data.message)
     }
   }, []);
 
@@ -46,7 +48,8 @@ function AuthProvider({ children }) {
         },
       });
     } catch (e) {
-      console.error(e);
+     
+      setError(e.response.data.message)
     }
   }, []);
   return (
@@ -57,6 +60,7 @@ function AuthProvider({ children }) {
         handleLogin,
         handleSignup,
         handleLogout,
+        error,
       }}
     >
       {children}
