@@ -5,9 +5,8 @@ import "../Common/Navbar.css"
 
 function Navbar() {
   const { user } = useAuth();
-  const [click, setClick] = useState(false);
-  const handleClick =()=> setClick(!click);
-  const closeMobileMenu =()=> setClick(false);
+  
+ 
   return (
     <>
       <nav className="navbar">
@@ -17,19 +16,19 @@ function Navbar() {
            <i className="fas fa-campground"></i>
         </Link>
       </div>
-      <div className="menu-icon" onClick={handleClick}>
-        <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
+      
+        
         <ul>
           {user?.isLogged ? (
             <>
             
               <li className="nav-item">
-                <Link to="/home" className="nav-links" onClick={closeMobileMenu}>
+                <Link to="/home" className="nav-links" >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>Perfil</Link>
+                <Link to="/profile" className="nav-links" >Perfil</Link>
               </li>{" "}
               
             </>
@@ -39,7 +38,7 @@ function Navbar() {
             </>
           )}
         </ul>
-        </div>
+        
       </nav>
     </>
   );

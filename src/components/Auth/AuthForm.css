@@ -1,6 +1,8 @@
-a{ text-decoration: none}
-*{
-    font-family: 'PT Sans', sans-serif;
+a {
+  text-decoration: none;
+}
+* {
+  font-family: "PT Sans", sans-serif;
 }
 
 .navbar-logo {

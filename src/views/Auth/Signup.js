@@ -20,7 +20,7 @@ function Signup() {
   <AuthForm btnText="Registrarse" onSubmit={signup} />
   ¿Ya tienes una cuenta?
   <Link to="/login" className= "link-register"> 
-  <i class="fas fa-arrow-right"></i> 
+  <i className="fas fa-arrow-right"></i> 
   Iniciar sesión
   </Link>
   <Footer />

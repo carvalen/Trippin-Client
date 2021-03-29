@@ -1,41 +1,41 @@
-a{ 
+a {
   text-decoration: none;
-  color: #FFF;
-  }
+  color: #fff;
+}
 
 * {
-  font-family: 'PT Sans', sans-serif;
-  margin:0;
-  padding:0;
+  font-family: "PT Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
-.main-title{
-   color: #fff;
+.main-title {
+  color: #fff;
   font-size: 40px;
   margin-top: -5px;
   text-align: center;
-  padding-top:100px;
+  padding-top: 100px;
 }
 .main-text {
-padding-top: 50px;
-padding-bottom: 60px;
+  padding-top: 50px;
+  padding-bottom: 60px;
   color: #fff;
   font-size: 25px;
-    text-align: center;
+  text-align: center;
 }
-.welcome{
+.welcome {
   color: white;
 }
 
 .welcome-nav {
-    background-color: #FFF;
+  background-color: #fff;
 }
 video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-  }
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
 .navbar-logo {
   color: #fff;
   justify-self: start;
@@ -63,22 +63,22 @@ video {
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-   z-index: 999; 
+  z-index: 999;
 }
 .links-btn {
   font-size: 15pt;
-   font-weight: bold;
-   padding: 30px;
-   background-color: transparent;
-   text-decoration: none;
-   text-align: center;
+  font-weight: bold;
+  padding: 30px;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
 }
 
 hr {
-  display:block;
-border: 2px solid #666; 
-border-radius: 300px/10px; 
-height: 0px; 
-text-align: center;
-width: 150px;
+  display: block;
+  border: 2px solid #666;
+  border-radius: 300px/10px;
+  height: 0px;
+  text-align: center;
+  width: 150px;
 }
