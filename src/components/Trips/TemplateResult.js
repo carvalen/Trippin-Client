@@ -19,6 +19,7 @@ export default function TemplateResult() {
         <div>
        <Navbar />
        <div className= "container-content">
+       {/* <img alt="foto-plantilla" src="/images/foto-template.jpg" /> */}
        <div className= "box-listado"> <h2>Tu lista predeterminada:</h2><br/><hr/><br/>
             <p>Según tu elección de tipo de viaje {type} y una duración estimada de {days} días. Añadela a tu perfil dónde podrás editarla o crear la tuya propia.</p><br/>
             <br/>

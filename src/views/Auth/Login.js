@@ -19,9 +19,11 @@ function Login() {
   console.log("error", error);
 
   return (
+   
     <div>
       <AuthForm btnText="Iniciar Sesión" onSubmit={login} />
       <div className="container-main-auth">
+
         <p>{error}</p>
         <div className="auth-container">
           ¿No tienes aún una cuenta?<br />

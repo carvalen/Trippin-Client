@@ -29,6 +29,7 @@ function AuthForm({ btnText, onSubmit }) {
           </Link>
         </div>
       </div>
+      <div className="form-container">
       <S.Form onSubmit={handleSubmit}>
         <S.Label>
           Nombre de usuario:
@@ -57,8 +58,9 @@ function AuthForm({ btnText, onSubmit }) {
             onChange={handleChange}
           />
         </S.Label>
-        <S.Button>{btnText}</S.Button>
+        <div className="button-form"><S.Button>{btnText}</S.Button></div>
       </S.Form>
+      </div>
     </>
   );
 }
