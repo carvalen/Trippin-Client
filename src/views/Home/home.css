@@ -1,21 +1,31 @@
 .home-page a {
   color: #fff;
 }
+.home-page h2{
+text-align: center;
+padding: 5% 0;
+font-size: 5vh;
+}
 
 .links-container {
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
+  
+  justify-content: center;
+  align-items: center;
 }
 .container-image,
 .home-container {
   position: relative;
-  display: inline-block;
   text-align: center;
+
 }
 .container-image img {
   width: 300px;
-  height: auto;
+  height: 300px;
+  padding:5%;
+  border-radius: 100%;
+
 }
 .image-text,
 .home-text {
@@ -27,4 +37,10 @@
 }
 .home-text {
   font-size: 25px;
+  background-color: #e3e5e68f;
+    padding: 5%;
+    border-radius: 20px;
+}
+.image-text {
+  font-size: 6vh;
 }

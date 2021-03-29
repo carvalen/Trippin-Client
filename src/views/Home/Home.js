@@ -13,8 +13,8 @@ function Home() {
       <div key="container" className="home-container">
         <img className="img-main" src="./images/fondo.jpeg" alt="fondo" />
         <div className="home-text">
-          <h1 className="welcome-main-title"> Bienvenid@!</h1>
-          <h2 className="welcome-second-title">¿Cómo funciona Trippin?</h2>
+          <h1 className="welcome-main-title"> Bienvenid@!</h1><br />
+          <h2 className="welcome-second-title">¿Cómo funciona Trippin?</h2><br />
           <p className="welcome-how">
             Elige más abajo el tipo de destino de tu viaje, el próximo paso será
             elegir la duración y se generará una lista de items imprescindibles
