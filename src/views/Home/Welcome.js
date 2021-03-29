@@ -14,7 +14,7 @@ function Welcome() {
         </div>
       </nav>
       <div className="container">
-        <video src="videos/video-1.mp4" autoPlay loop muted />
+        <video className="video-welcome"src="videos/video-1.mp4" autoPlay loop muted />
         <h3 className="main-title">¿No sabes que llevar a tu próximo viaje?</h3>
         <p className="main-text">
           Te ayudamos a organizar lo imprescindible según el lugar y la duración

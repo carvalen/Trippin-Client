@@ -24,7 +24,7 @@ function Home() {
         </div>
       </div>
       <div className="home-page">
-        <h2 className="title-destiny">Elige tu tipo de destino:</h2>
+        <h2 className="title-destiny">Elige tu tipo de destino</h2>
         <div className="links-container">
           <Link to="/mar/days">
             <div className="container-image">

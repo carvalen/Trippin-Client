@@ -23,15 +23,17 @@ function Days() {
       <>
       <Navbar />
       <div className= "container-content">
-        <div>
+      <video src="/videos/video-days.mp4" autoPlay loop muted />
+        <div className= "container-days">
           <h2> ¿Cuantos días vas a viajar?</h2>
         </div>
-        <div>
+        <div className= "days">
           
-          <button  value="3" name="days3" onClick= {handleClick}>3 días</button>
-          <button  value="7" name="days7" onClick= {handleClick}>7 días</button>
+          <button  className="buttoms-days" value="3" name="days3" onClick= {handleClick}>Viaje corto</button>
+          <button  className="buttoms-days" value="7" name="days7" onClick= {handleClick}>Viaje largo</button>
         </div>
         </div>
+        
         <Footer />
     </>
   );

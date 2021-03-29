@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      {user?.isLogged && <i className="fas fa-sign-out-alt" onClick={logout}></i>}
+      {user?.isLogged && <div className="logout-logo"><i className="fas fa-sign-out-alt" onClick={logout}>Salir</i></div>}
 
       <Switch>
       

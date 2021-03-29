@@ -1,15 +1,15 @@
-.link-register{
-    color: black;
+.link-register {
+  color: black;
 }
 .link-register:hover {
-background-color: #ddd;
+  background-color: #ddd;
   color: black;
 }
 .auth-container {
-text-align: center;
+  text-align: center;
 }
-.nav-auth{
-background-color: black;
+.nav-auth {
+  background-color: black;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -17,12 +17,12 @@ background-color: black;
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-   z-index: 999;
+  z-index: 999;
 }
-.container-main-auth{
+.container-main-auth {
   height: 100vh;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

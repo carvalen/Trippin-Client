@@ -19,15 +19,16 @@ export default function TemplateResult() {
         <div>
        <Navbar />
        <div className= "container-content">
-            <h2>Templates</h2>
-            <h4>Plantilla para tipo {type} y duración {days} días</h4>
+       <div className= "box-listado"> <h2>Tu lista predeterminada:</h2><br/><hr/><br/>
+            <p>Según tu elección de tipo de viaje {type} y una duración estimada de {days} días. Añadela a tu perfil dónde podrás editarla o crear la tuya propia.</p><br/>
+            <br/>
             <ul>
                 {items && items.map(item => <li key="{item}">{item}</li>)}
             </ul>
         </div>
-        <div><p>¿Te gustaría añadirlo a tu perfil?</p>
+        <div><p>¿Te gustaría añadirlo a tu perfil?</p><br/>
           <button onClick={createListHandle}>Añadir</button></div>
-          </div>
+          </div></div>
           <Footer />
         </>
     )

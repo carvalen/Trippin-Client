@@ -29,7 +29,7 @@ a {
 .welcome-nav {
   background-color: #fff;
 }
-video {
+.video-welcome {
   object-fit: cover;
   width: 100%;
   height: 100%;

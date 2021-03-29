@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import "../Common/Navbar.css"
+import "./Navbar.css";
 
 function Navbar() {
   const { user } = useAuth();
@@ -21,7 +21,7 @@ function Navbar() {
         <ul>
           {user?.isLogged ? (
             <>
-            
+            <div className="container-nav-items">
               <li className="nav-item">
                 <Link to="/home" className="nav-links" >
                   Home
@@ -30,7 +30,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link to="/profile" className="nav-links" >Perfil</Link>
               </li>{" "}
-              
+              </div>
             </>
           ) : (
             <>
