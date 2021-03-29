@@ -2,7 +2,8 @@ import React from 'react';
 import {useLocation, useHistory} from "react-router-dom";
 import Navbar from "../Common/Navbar";
 import {createList} from "../../service/list.service";
-import Footer from "../../components/Common/Footer"
+import Footer from "../../components/Common/Footer";
+import "./Trips.css";
 
 export default function TemplateResult() {
     const { state } = useLocation();
@@ -14,8 +15,10 @@ export default function TemplateResult() {
     }
     return (
 <>
+
         <div>
        <Navbar />
+       <div className= "container-content">
             <h2>Templates</h2>
             <h4>Plantilla para tipo {type} y duración {days} días</h4>
             <ul>
@@ -24,6 +27,7 @@ export default function TemplateResult() {
         </div>
         <div><p>¿Te gustaría añadirlo a tu perfil?</p>
           <button onClick={createListHandle}>Añadir</button></div>
+          </div>
           <Footer />
         </>
     )

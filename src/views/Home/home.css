@@ -38,9 +38,23 @@ font-size: 5vh;
 .home-text {
   font-size: 25px;
   background-color: #e3e5e68f;
-    padding: 5%;
+    padding: 10%;
     border-radius: 20px;
 }
 .image-text {
   font-size: 6vh;
 }
+.welcome-how{
+  text-align: left;
+}
+
+@media screen and (max-width: 400px) {
+
+  .home-text h1 { font-size: 7vh;
+  }
+    .home-text h2 { font-size: 5vh;
+    }
+    .home-text p { font-size: 3vh;
+  }
+}
+  

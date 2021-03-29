@@ -19,3 +19,10 @@ background-color: black;
   top: 0;
    z-index: 999;
 }
+.container-main-auth{
+  height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+}

@@ -6,6 +6,7 @@ import ListForm from "../List/ListForm";
 import CreateListForm from "../List/CreateListForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Footer from "../../components/Common/Footer";
+import "./Profile.css";
 
 function Profile() {
   const [userState, setUserState] = useState({});
@@ -63,6 +64,7 @@ function Profile() {
   return (
     <>
       <Navbar />
+      <div className="container-profile">
       <h2>Bienvenido a tu perfil {userState.username}</h2>
       <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
 
@@ -84,8 +86,8 @@ function Profile() {
                 toggleEdit={toggleEdit}
               />
             ) : (
-              <div key={list._id} >
-                <div >
+              <div key={list._id}>
+                <div>
                   <p>Viaje de tipo: {list.type}</p>
                   <p>Duración: {list.days} días</p>
 
@@ -99,12 +101,6 @@ function Profile() {
                 <button onClick={() => toggleEdit(list._id)}>Editar</button>
                 <button onClick={() => handleDelete(list._id)}>Eliminar</button>
                 <div className="container">
-                  {/* <input
-                    type="text"
-                    value={text}
-                    placeholder="Type some text here"
-                    onChange={(event) => setText(event.target.value)}
-                  /> */}
                   <CopyToClipboard
                     text={`
     Type: ${list.type}
@@ -123,10 +119,13 @@ function Profile() {
                     </div>
                   </CopyToClipboard>
                 </div>
-                <div align="center"><hr /></div>
+                <div align="center">
+                  <hr />
+                </div>
               </div>
             )
           )}
+      </div>
       </div>
       <Footer />
     </>

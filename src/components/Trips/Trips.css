@@ -1,0 +1,7 @@
+.container-content {
+    height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+}

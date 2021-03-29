@@ -16,13 +16,16 @@ function Signup() {
   };
 
   return (
+    
   <div className="auth-container">
   <AuthForm btnText="Registrarse" onSubmit={signup} />
+  <div className= "container-main-auth">
   ¿Ya tienes una cuenta?
   <Link to="/login" className= "link-register"> 
-  <i className="fas fa-arrow-right"></i> 
+   
   Iniciar sesión
   </Link>
+  </div>
   <Footer />
   </div>
   )}
