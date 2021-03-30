@@ -5,3 +5,10 @@
 .logout-logo {
   position: absolute;
 }
+.logout {
+margin-top: 5%;
+    position: absolute;
+    top: 0;
+    z-index: 2000;
+    color: white;
+  }
