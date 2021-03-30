@@ -21,16 +21,18 @@
   right: 4em;
   background-color: rgba(226, 226, 226, 0.589);
   border-radius: 1.5em;
-  text-transform: uppercase;
+
   padding: 1em 1.5em;
+  left: 0px;
+  outline:none;
 }
 .buttoms-days {
   font-size: 15pt;
-  font-weight: bold;
+  
   padding: 30px;
   background-color: transparent;
-  text-decoration: none;
   text-align: center;
+  outline:none;
 }
 .container-content{
     height: 100vh;
@@ -42,7 +44,4 @@
 }
 .box-listado{
     background-color: rgba(226, 226, 226, 0.589);
-}
-.foto-plantilla {
-    
 }

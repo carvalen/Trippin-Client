@@ -24,8 +24,8 @@ function App() {
 
   return (
     <>
-      {user?.isLogged && <div className="logout-logo"><i className="fas fa-sign-out-alt" onClick={logout}>Salir</i></div>}
-
+      
+      <div className="logout">  {user?.isLogged && <div className="logout-logo"><i className="fas fa-sign-out-alt" onClick={logout}>Salir</i></div>}</div>
       <Switch>
       
         <AnonRoute exact path="/" component={Welcome} />
@@ -39,7 +39,7 @@ function App() {
         <Route path="*"><h1>Not Found</h1></Route>
  
       </Switch>
-      
+   
     </>
   );
 }

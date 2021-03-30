@@ -20,8 +20,12 @@
   z-index: 999;
 }
 .container-main-auth {
-  height: 50vh;
+  height: 70vh;
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+.logout-container {
+  text-align: center;
+  padding: 50px;
 }

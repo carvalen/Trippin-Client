@@ -14,10 +14,11 @@ TRIPPIN
 </Link>
          </nav>
          <div className= "container-main-auth">
-        <div className="auth-container">
+        <div className="logout-container">
             <h2>Has cerrado sesión</h2>
             <p>¿Quieres volver a entrar?</p>
             <Link to="/login" className= "link-register"> 
+
               Iniciar Sesión
             </Link>
         </div>
