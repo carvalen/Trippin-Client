@@ -65,67 +65,73 @@ function Profile() {
     <>
       <Navbar />
       <div className="container-profile">
-      <h2>Bienvenido a tu perfil {userState.username}</h2>
-      <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
+        <h2>Bienvenido a tu perfil {userState.username}</h2>
+        <br />
+        <p>Estas son tus listas de cosas para llevar a tu próximo viaje:</p>
+        <br />
 
-      {createToggle && (
-        <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} />
-      )}
-      <div>
-        ¿Te gustaría crear tu propia lista?
-        <button onClick={() => toggleCreate()}>Crear</button>
-      </div>
+        {createToggle && (
+          <CreateListForm onSubmit={handleCreate} toggleCreate={toggleCreate} />
+        )}
+        <div>
+          ¿Te gustaría crear tu propia lista?
+          <button onClick={() => toggleCreate()}>Crear</button>
+        </div>
 
-      <div>
-        {userState.lists &&
-          userState.lists.map((list) =>
-            editToggle.listId === list._id && editToggle.status ? (
-              <ListForm
-                onSubmit={handleEdit}
-                listInfo={list}
-                toggleEdit={toggleEdit}
-              />
-            ) : (
-              <div key={list._id}>
-                <div>
-                  <p>Viaje de tipo: {list.type}</p>
-                  <p>Duración: {list.days} días</p>
+        <div>
+          {userState.lists &&
+            userState.lists.map((list) =>
+              editToggle.listId === list._id && editToggle.status ? (
+                <ListForm
+                  onSubmit={handleEdit}
+                  listInfo={list}
+                  toggleEdit={toggleEdit}
+                />
+              ) : (
+                <div key={list._id}>
+                  <div>
+                    <p>Viaje de tipo: {list.type}</p>
+                    <p>Duración: {list.days} días</p>
 
-                  <ul>
-                    {list.items.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+                    <ul>
+                      {list.items.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <button onClick={() => toggleEdit(list._id)}>Editar</button>
-                <button onClick={() => handleDelete(list._id)}>Eliminar</button>
-                <div className="container">
-                  <CopyToClipboard
-                    text={`
+                  <button onClick={() => toggleEdit(list._id)}>Editar</button>
+                  <button onClick={() => handleDelete(list._id)}>
+                    Eliminar
+                  </button>
+                  <div className="container">
+                    <CopyToClipboard
+                      text={`
     Type: ${list.type}
     Days: ${list.days}
     Items: ${list.items}
   `}
-                    onCopy={onCopyText}
-                  >
-                    <div className="copy-area">
-                      <button>Copiar</button>
-                      <span
-                        className={`copy-feedback ${isCopied ? "active" : ""}`}
-                      >
-                        {isCopied && "Copiado!"}
-                      </span>
-                    </div>
-                  </CopyToClipboard>
+                      onCopy={onCopyText}
+                    >
+                      <div className="copy-area">
+                        <button>Copiar</button>
+                        <span
+                          className={`copy-feedback ${
+                            isCopied ? "active" : ""
+                          }`}
+                        >
+                          {isCopied && "Copiado!"}
+                        </span>
+                      </div>
+                    </CopyToClipboard>
+                  </div>
+                  <div align="center">
+                    <hr />
+                  </div>
                 </div>
-                <div align="center">
-                  <hr />
-                </div>
-              </div>
-            )
-          )}
-      </div>
+              )
+            )}
+        </div>
       </div>
       <Footer />
     </>

@@ -25,7 +25,7 @@ function Days() {
       <div className= "container-content">
       <video src="/videos/video-days.mp4" autoPlay loop muted />
         <div className= "container-days">
-          <h2> ¿Cuantos días vas a viajar?</h2>
+          <h2> ¿Cuál es la duración de tu viaje?</h2>
         </div>
         <div className= "days">
           
