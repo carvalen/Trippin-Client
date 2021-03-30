@@ -33,6 +33,7 @@
   background-color: transparent;
   text-align: center;
   outline: none;
+  border: 0;
 }
 .container-content {
   height: 100vh;
